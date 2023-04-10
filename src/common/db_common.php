@@ -27,15 +27,15 @@ function db_conn( &$param_conn ) {
 function select_board_info_paging( &$param_arr ) {
     $sql =
         " SELECT "
-        ."  board_no "
-        ."  ,board_title "
-        ."  ,board_write_date "
+        ."      board_no "
+        ."      ,board_title "
+        ."      ,board_write_date "
         ." FROM "
-        ."  board_info "
+        ."      board_info "
         ." WHERE "
-        ."  board_del_flg = '0' "
+        ."      board_del_flg = '0' "
         ." ORDER BY "
-        ."  board_no ASC "
+        ."      board_no DESC "
         ." LIMIT :limit_num OFFSET :offset "
         ;
     $arr_prepare = 
@@ -61,16 +61,44 @@ function select_board_info_paging( &$param_arr ) {
     return $result;
 }
 
+function select_board_info_cnt() {
+    $sql =
+        " SELECT "
+        ."      COUNT(*) cnt "
+        ." FROM "
+        ."      board_info "
+        ." WHERE "
+        ."      board_del_flg = '0' "
+        ;
+    $arr_prepare = array();
+
+    $conn = null;
+    try {
+        db_conn( $conn );
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result = $stmt->fetchAll();
+    } 
+    catch ( Exception $e ) {
+        return $e->getMessage();
+    } 
+    finally {
+        $conn = null;
+    }
+
+    return $result;
+}
+
 
 // TODO : test Start
-$arr = 
-    array(
-        "limit_num"    => 5
-        ,"offset"      => 0
-    );
-$result = select_board_info_paging( $arr );
+// $arr = 
+//     array(
+//         "limit_num"    => 5
+//         ,"offset"      => 0
+//     );
+// $result = select_board_info_paging( $arr );
 
-print_r( $result );
+// print_r( $result );
 // TODO : test End
 
 
