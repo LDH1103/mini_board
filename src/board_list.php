@@ -51,7 +51,7 @@
 </head>
 <body>
     <div>
-        <table class='table table-striped'>
+        <table class="table table-striped table-hover">
             <thead class="table-dark">
                 <tr>
                     <th>게시글 번호</th>
