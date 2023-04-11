@@ -89,6 +89,39 @@ function select_board_info_cnt() {
     return $result;
 }
 
+function select_board_info_no( &$param_no ) {
+    $sql =
+        " SELECT "
+        ."      board_no "
+        ."      ,board_title "
+        ."      ,board_contents "
+        ." FROM "
+        ."      board_info "
+        ." WHERE "
+        ."      board_del_flg = '0' "
+        ."      AND board_no = :board_no "
+        ;
+    $arr_prepare = 
+        array(
+            ":board_no"    => $param_no
+        );
+
+    $conn = null;
+    try {
+        db_conn( $conn );
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare ); // 쿼리 실행 후 $result에 담기
+        $result = $stmt->fetchAll();
+    } 
+    catch ( Exception $e ) {
+        return $e->getMessage();
+    } 
+    finally {
+        $conn = null;
+    }
+
+    return $result;
+}
 
 // TODO : test Start
 // $arr = 
@@ -99,6 +132,13 @@ function select_board_info_cnt() {
 // $result = select_board_info_paging( $arr );
 
 // print_r( $result );
+
+
+$no = 2;
+$result = select_board_info_no( $no );
+
+print_r( $result );
+
 // TODO : test End
 
 
