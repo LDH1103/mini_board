@@ -1,5 +1,10 @@
 <?php
-
+// ---------------------------------
+// 함수명	: db_conn
+// 기능		: DB Connection
+// 파라미터	: Obj	&$param_conn
+// 리턴값	: 없음
+// ---------------------------------
 function db_conn( &$param_conn ) {
     $host = "localhost";
     $user = "root";
@@ -24,6 +29,12 @@ function db_conn( &$param_conn ) {
 }
 
 // 페이징 : 게시글 리스트에서 1페이지를 눌렀을때 1페이지 내용만, 2페이지를 눌렀을때 2페이지만 보여주는 것
+// ---------------------------------
+// 함수명	: select_board_info_paging
+// 기능		: 페이징_게시판 정보 검색
+// 파라미터	: Array		&$param_arr
+// 리턴값	: Array		$result
+// ---------------------------------
 function select_board_info_paging( &$param_arr ) {
     $sql =
         " SELECT "
@@ -61,6 +72,12 @@ function select_board_info_paging( &$param_arr ) {
     return $result;
 }
 
+// ---------------------------------
+// 함수명	: select_board_info_cnt
+// 기능		: 게시판 정보 테이블 레코드 카운트 검색
+// 파라미터	: 없음
+// 리턴값	: Array		$result
+// ---------------------------------
 function select_board_info_cnt() {
     $sql =
         " SELECT "
@@ -110,7 +127,7 @@ function select_board_info_no( &$param_no ) {
     try {
         db_conn( $conn );
         $stmt = $conn->prepare( $sql );
-        $stmt->execute( $arr_prepare ); // 쿼리 실행 후 $result에 담기
+        $stmt->execute( $arr_prepare );
         $result = $stmt->fetchAll();
     } 
     catch ( Exception $e ) {
@@ -120,10 +137,13 @@ function select_board_info_no( &$param_no ) {
         $conn = null;
     }
 
-    return $result;
+    return $result[0];
 }
 
+
+
 // TODO : test Start
+
 // $arr = 
 //     array(
 //         "limit_num"    => 5
@@ -133,11 +153,10 @@ function select_board_info_no( &$param_no ) {
 
 // print_r( $result );
 
+// -------------------------------------------
 
-$no = 2;
-$result = select_board_info_no( $no );
-
-print_r( $result );
+// $i = 20;
+// print_r( select_board_info_no( $i ) );
 
 // TODO : test End
 
