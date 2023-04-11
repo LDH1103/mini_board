@@ -65,7 +65,7 @@
             margin-left : 15px;
         }
         .page_bar {
-            width : 400px;
+            width : 600px;
             margin : 0 auto;
         }
         .abs {
@@ -82,6 +82,10 @@
         }
         .td_left {
             text-align : left;
+        }
+        .a_none {
+            text-decoration : none;
+            color : black;
         }
     </style>
 </head>
@@ -102,7 +106,7 @@
                 ?>
                         <tr>
                             <td><?php echo $recode["board_no"] ?></td>
-                            <td class="td_left"><?php echo $recode["board_title"] ?></td>
+                            <td class="td_left"><a class="a_none" href="board_update.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>
                 <?php
@@ -113,13 +117,22 @@
     </div>
     <div class="page_bar">
     <?php
-        if ($page_num > 1) {
+        if ( $page_num > 1 ) {
     ?>
-            <a class='btn btn-outline-secondary a_margin_r' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
+            <a class='btn btn-outline-secondary' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
     <?php
         } else {
     ?>
-            <a class='btn btn-outline-secondary a_margin_r hidden' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
+            <a class='btn btn-outline-secondary hidden' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
+    <?php
+        }
+        if ( $page_num > 1 ) {
+    ?>
+            <a class='btn btn-outline-secondary a_margin_r' title='이전 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - 1 ?>'>◀</a>
+    <?php
+        } else {
+    ?>
+            <a class='btn btn-outline-secondary a_margin_r hidden' title='이전 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - 1 ?>'>◀</a>
     <?php
         }
     ?>
@@ -133,11 +146,22 @@
     <?php
         if ($page_num != $max_page_num) {
     ?>
-            <a class='btn btn-outline-secondary a_margin_l' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>▶▶</a>
+            <a class='btn btn-outline-secondary a_margin_l ' title='다음 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + 1 ?>'>▶</a>
     <?php
         } else {
     ?>
-            <a class='btn btn-outline-secondary a_margin_l hidden' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>▶▶</a>
+            <a class='btn btn-outline-secondary a_margin_l hidden' title='다음 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + 1 ?>'>▶</a>
+    <?php
+        }
+    ?>
+    <?php
+        if ($page_num != $max_page_num) {
+    ?>
+            <a class='btn btn-outline-secondary' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>▶▶</a>
+    <?php
+        } else {
+    ?>
+            <a class='btn btn-outline-secondary hidden' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>▶▶</a>
     <?php
         }
     ?>
