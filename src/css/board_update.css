@@ -22,6 +22,7 @@ input {
     text-align : start;
     resize: none;
     margin : 10px;
+    font-size : 15px;
 }
 .input_title {
     width: 800px;

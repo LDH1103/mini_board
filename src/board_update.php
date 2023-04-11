@@ -43,16 +43,16 @@
 <body>
     <h1 class="top">게시글 수정</h1>
     <form class="body_form" method="post" action="board_update.php">
-        <div>글 번호 : <?php echo $result_info['board_no'] ?></div>
-        <br>
-        <label for="title"></label>
-        <input type="text" name="board_title" id="title" value="<?php echo $result_info['board_title'] ?>" class="input_title">
-        <br>
-        <label for="contents"></label>
-        <textarea name="board_contents" id="contents" class="input_contents"><?php echo $result_info['board_contents'] ?></textarea>
-        <br>
-        <button type="submit">수정</button>
-        <button type="button" onclick="location.href='board_list.php'" >리스트</button>
+        <label  for="bno">게시글 번호 : </label>
+		<input type="text" name="board_no" id="bno" value="<?php echo $result_info["board_no"] ?>" readonly>
+		<br>
+		<label  for="title">게시글 제목 : </label>
+		<input type="text" name="board_title" id="title" value="<?php echo $result_info["board_title"] ?>">
+		<br>
+		<label  for="contents">게시글 내용 : </label>
+		<textarea name="board_contents" id="contents"><?php echo $result_info["board_contents"] ?></textarea>
+		<br>
+		<button type="submit">수정</button>
     </form>
 
 </body>
