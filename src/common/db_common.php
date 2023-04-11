@@ -140,6 +140,48 @@ function select_board_info_no( &$param_no ) {
     return $result[0];
 }
 
+// ---------------------------------
+// 함수명	: update_board_info_no
+// 기능		: 게시판 특정 게시글 정보 수정
+// 파라미터	: Array              &$param_arr
+// 리턴값	: INT/STRING		$result_cnt/ERRMSG
+// ---------------------------------
+function update_board_info_no( &$param_arr ) {
+    $sql =
+        " UPDATE "
+        ."      board_info "
+        ." SET "
+        ."      board_title = :board_title "
+        ."      ,board_contents = :board_contents "
+        ." WHERE "
+        ."      board_no = :board_no "
+        ;
+    $arr_prepare = 
+    array(
+        ":board_title"       => $param_arr["board_title"]
+        ,":board_contents"   => $param_arr["board_contents"]
+        ,":board_no"         => $param_arr["board_no"]
+    );
+
+    $conn = null;
+    try {
+        db_conn( $conn ); // PDO object set
+        $conn->beginTransaction(); // Transactio 시작, commit이나 rollback을 만나면 종료됨
+        $stmt = $conn->prepare( $sql ); // statement object 셋팅
+        $stmt->execute( $arr_prepare ); // DB request
+        $result_cnt = $stmt->rowCount(); // query 적용 recode 갯수 (업데이트된 행이 몇갠지)
+        $conn->commit(); // 업데이트 후 커밋
+    } 
+    catch ( Exception $e ) {
+        $conn->rollback();
+        return $e->getMessage();
+    } 
+    finally {
+        $conn = null;
+    }
+
+    return $result_cnt;
+}
 
 
 // TODO : test Start
@@ -157,6 +199,14 @@ function select_board_info_no( &$param_no ) {
 
 // $i = 20;
 // print_r( select_board_info_no( $i ) );
+
+// $arr = 
+//     array( 
+//         "board_no"          => 1
+//         ,"board_title"      => "test1"
+//         ,"board_contents"   => "testtest1"   
+//     );
+// echo update_board_info_no( $arr );
 
 // TODO : test End
 

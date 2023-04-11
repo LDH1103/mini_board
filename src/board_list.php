@@ -2,6 +2,7 @@
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
     include_once( URL_DB );
+    // include_once( C:\Apache24\htdocs\mini_board\src\common\db_common.php ); 랑 같음
     $http_method = $_SERVER["REQUEST_METHOD"];
 
     // 처음 접속시 페이지 넘버 정해주기
@@ -41,7 +42,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik+Pixels&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title>게시판</title>
     <style>
@@ -73,8 +74,8 @@
         .top {
             margin-top : 30px;
             font-weight : 900;
-            font-family: 'Rubik Pixels', cursive;
-            font-size : 50px;
+            font-family: 'Bebas Neue', cursive;
+            font-size : 80px;
         }
         .hidden {
             visibility:hidden;
