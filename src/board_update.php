@@ -29,7 +29,7 @@
 
     // 내림차순 정렬일때 페이지 구하기
     ob_start(); include_once('board_list.php'); ob_end_clean(); // 다른 php파일 변수 불러오기
-    $page = ceil(( $result_cnt[0]["cnt"] - $result_info["board_no"] + 1 ) / $limit_num ); 
+    $list_page = ceil(( $result_cnt[0]["cnt"] - $result_info["board_no"] + 1 ) / $limit_num ); 
     // 오름차순 정렬일때 페이지 구하기
     // ob_start(); include_once('board_list.php'); ob_end_clean();echo ceil( $result_info['board_no'] / $limit_num );
 ?>
@@ -57,7 +57,7 @@
 		<textarea class="input_contents" spellcheck="false" name="board_contents" id="contents"><?php echo $result_info["board_contents"] ?></textarea>
 		<br>
 		<button class="btn btn-outline-dark" type="submit" title="수정하기">수정</button>
-        <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $page ?>'">리스트</button>
+        <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $list_page ?>'">리스트</button>
 
         <!-- onclick="history.back()" -->
     </form>
