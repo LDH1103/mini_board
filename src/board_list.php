@@ -44,50 +44,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="./common/css_common.css">
+    <link rel="stylesheet" href="./css/board_list.css">
     <title>게시판</title>
-    <style>
-        * {
-            margin : 0;
-            padding : 0;
-            box-sizing : border-box;
-        }
-        .div_table {
-            margin : 15px auto;
-            width : 900px;
-        }
-        body {
-            text-align : center;
-        }
-        .a_margin_r {
-            margin-right : 15px;
-        }
-        .a_margin_l {
-            margin-left : 15px;
-        }
-        .page_bar {
-            width : 600px;
-            margin : 0 auto;
-        }
-        .abs {
-            margin : 20px auto;
-        }
-        .top {
-            margin-top : 30px;
-            font-weight : 900;
-            font-family: 'Bebas Neue', cursive;
-            font-size : 80px;
-        }
-        .hidden {
-            visibility:hidden;
-        }
-        .td_left {
-            text-align : left;
-        }
-        .a_none {
-            text-decoration : none;
-            color : black;
-        }
-    </style>
 </head>
 <body>
     <h1 class="top">BOARD</h1>
@@ -104,7 +63,7 @@
                 <?php
                     foreach( $result_paging as $recode ) {
                 ?>
-                        <tr>
+                        <tr class="tr_font">
                             <td><?php echo $recode["board_no"] ?></td>
                             <td class="td_left"><a class="a_none" href="board_update.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>

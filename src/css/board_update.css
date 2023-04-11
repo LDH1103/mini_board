@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
 
 body {
     font-size : 20px;
@@ -9,9 +15,11 @@ input {
     font-size : 20px;
 }
 .body_form {
-    text-align: start;
+    text-align: center;
+    margin: 10px auto;
 }
 .top {
+    text-align: center;
     margin-top : 30px;
     font-family : 'Black Han Sans', sans-serif;
     font-weight : 300;
@@ -23,8 +31,47 @@ input {
     resize: none;
     margin : 10px;
     font-size : 15px;
+    border : none;
+    outline: 1px solid rgba(204, 204, 204, 0.856);
+    border-radius: 5px;
+}
+.input_contents:focus {
+    border: none;
+    outline: 1px solid rgba(82, 209, 160, 0.603);
+}
+.label_title {
+    position: relative;
+    left: -8px;
+    font-family: 'TheJamsil5Bold';
 }
 .input_title {
-    width: 800px;
+    width: 600px;
     text-align : start;
+    position: relative;
+    left: -8px;
+    border : none;
+    outline: 1px solid rgba(204, 204, 204, 0.856);
+    border-radius: 5px;
+}
+.input_title:focus {
+    border: none;
+    outline: 1px solid rgba(82, 209, 160, 0.603);
+}
+.input_no {
+    border: none;
+    width: 50px;
+    outline: none;
+    position: relative;
+    right: -20px;
+    font-family: 'TheJamsil5Bold';
+}
+.label_no {
+    margin-left: 20px;
+    position: relative;
+    right: -20px;
+    font-family: 'TheJamsil5Bold';
+}
+.btn {
+    position: relative;
+    left: 330px;
 }
