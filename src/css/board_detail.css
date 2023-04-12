@@ -12,21 +12,24 @@
     font-size : 80px;
     text-align: center;
 }
-.info_p {
-    font-family : 'TheJamsil5Bold';
-    font-size : 20px;
-}
 .main_contents {
-    width: 810px;
+    width: 811px;
     margin: 0 auto;
     border: 1px solid #ccc;
     border-radius: 10px;;
 }
 .info_div {
+    width: 810px;
     text-align: center;
     font-family: 'TheJamsil5Bold';
     background-color: #212529;
     color: white;
+    display: grid;
+    grid-template-columns: 80px 1fr 250px;
+    font-size : 20px;
+}
+.info_div2 {
+    text-align: start;
 }
 .btns {
     width: 810px;
@@ -34,22 +37,6 @@
     position: relative;
     top : 10px;
     left : 320px;
-}
-.info_span1 {
-    position: relative;
-    top : -2px;
-    right : 260px;
-    font-size : 15px;
-}
-.info_span2 {
-    position: relative;
-    right : 240px;
-}
-.info_span3 {
-    position: relative;
-    top : -2px;
-    left : 260px;
-    font-size : 15px;
 }
 .board_contents {
     font-size: 15px;

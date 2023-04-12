@@ -31,8 +31,23 @@
     $result_paging = select_board_info_paging( $arr_prepare );
     // var_dump( $max_page_num );
 
-    
-    
+    // paging block
+    $block_set = 5; // 한 블럭당 보여줄 페이지 수
+    $block_num = ceil( $page_num / $block_set ); // 현재 페이지 블럭
+    $block_start = (( $block_num - 1 ) * $block_set ) + 1; // 첫 블럭
+    $block_end = $block_start + $block_set - 1; // 마지막 블럭
+    if( $block_end > $max_page_num ) {
+        $block_end = $max_page_num; // 현재 블럭의 끝 페이지 번호가 전체 페이지 수보다 크다면, 다음 블럭이 존재하지 않으므로 현재 블럭의 끝 페이지 번호를 전체 페이지 수로 지정
+    }
+    $total_block = ceil( $max_page_num / $block_set ); // 총 블럭 갯수
+
+    // 제목 몇글자만 출력
+    // if ( mb_strlen( $recode["board_title"] ) > 10 ) {
+    //     echo mb_substr( $recode["board_title"], 0, 10)."...";
+    // } else {
+    //     echo $recode["board_title"];
+    // }
+
 ?>
 
 <!DOCTYPE html>
@@ -52,21 +67,21 @@
 <body>
     <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
     <div class="div_table">
-        <table class="table table-hover">
-            <thead class="table-dark">
-                <tr>
+        <table class="tbl">
+            <thead class="tbl_th">
+                <tr class="tbl_tr tbl_tr_color">
                     <th>게시글 번호</th>
                     <th>게시글 제목</th>
                     <th>작성일자</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="tbl_tbody">
                 <?php
                     foreach( $result_paging as $recode ) {
                 ?>
-                        <tr class="tr_font">
+                        <tr class="tr_font tbl_tr">
                             <td><?php echo $recode["board_no"] ?></td>
-                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
+                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php if ( mb_strlen( $recode["board_title"] ) > 10 ) { echo mb_substr( $recode["board_title"], 0, 30).'...'; } else { echo $recode["board_title"]; } ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>
                 <?php
@@ -86,31 +101,31 @@
             <a class='btn btn-outline-secondary hidden' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
     <?php
         }
-        if ( $page_num > 1 ) {
+        if ( $page_num > $block_set ) {
     ?>
-            <a class='btn btn-outline-secondary a_margin_r' title='이전 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - 1 ?>'>◀</a>
+            <a class='btn btn-outline-secondary a_margin_r' title='이전 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - $block_set ?>'>◀</a>
     <?php
         } else {
     ?>
-            <a class='btn btn-outline-secondary a_margin_r hidden' title='이전 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - 1 ?>'>◀</a>
+            <a class='btn btn-outline-secondary a_margin_r hidden' title='이전 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - $block_set ?>'>◀</a>
     <?php
         }
     ?>
     <?php
-        for ( $i = 1; $i <= $max_page_num; $i++ ) {
+        for ( $i = $block_start; $i <= $block_end; $i++ ) {
     ?> 
             <a class="btn btn-outline-secondary abs" title='<?php echo $i ?>페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $i ?>'><?php echo $i; ?></a>
     <?php
         }
     ?>
     <?php
-        if ($page_num != $max_page_num) {
+        if ( $page_num + $block_set <= $max_page_num ) {
     ?>
-            <a class='btn btn-outline-secondary a_margin_l ' title='다음 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + 1 ?>'>▶</a>
+            <a class='btn btn-outline-secondary a_margin_l ' title='다음 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + $block_set ?>'>▶</a>
     <?php
         } else {
     ?>
-            <a class='btn btn-outline-secondary a_margin_l hidden' title='다음 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + 1 ?>'>▶</a>
+            <a class='btn btn-outline-secondary a_margin_l hidden' title='다음 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + $block_set ?>'>▶</a>
     <?php
         }
     ?>

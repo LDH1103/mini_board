@@ -5,6 +5,8 @@
     font-weight: 700;
     font-style: normal;
 }
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 
 body {
     font-size : 20px;
@@ -21,7 +23,7 @@ input {
 .top_main {
     text-align: center;
     margin-top : 30px;
-    font-family : 'Black Han Sans', sans-serif;
+    font-family : 'Bebas Neue', cursive;
     font-weight : 300;
     text-align : center;
 }
