@@ -8,4 +8,4 @@ xcopy D:\workspace\mini_board\src C:\Apache24\htdocs\mini_board\src /E /H /F /Y
 
 
 ob_start(); include_once('board_list.php'); ob_end_clean();
-다른 php파일 변수 불러오기
+다른 php파일 변수 불러오기 (다른내용은 출력 안함)
