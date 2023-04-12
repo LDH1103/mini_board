@@ -14,7 +14,7 @@
 }
 .info_p {
     font-family : 'TheJamsil5Bold';
-    font-size : 25px;
+    font-size : 20px;
 }
 .main_contents {
     width: 810px;
@@ -40,6 +40,10 @@
     top : -2px;
     right : 260px;
     font-size : 15px;
+}
+.info_span2 {
+    position: relative;
+    right : 240px;
 }
 .info_span3 {
     position: relative;
