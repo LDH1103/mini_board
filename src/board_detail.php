@@ -20,21 +20,29 @@ ob_start(); include_once('board_update.php'); ob_end_clean();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./common/css_common.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/board_update.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <title><?php echo $result_info["board_title"] ?></title>
     <link rel="stylesheet" href="./css/board_detail.css">
 </head>
 <body>
     <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
-    <div>
-        <p>게시글 번호 : <?php echo $result_info["board_no"] ?></p>
-        <p>작성일 : <?php echo $result_info["board_write_date"] ?></p>
-        <p>게시글 제목 : <?php echo $result_info["board_title"] ?></p>
-        <p>게시글 내용 : <?php echo $result_info["board_contents"] ?></p>
-
+    <div class="main_contents"> 
+        <div class=info_div>
+            <p class="info_p">
+                <span class="info_span1"><?php echo $result_info["board_no"] ?></span>
+                <span class="info_span2"><?php echo $result_info["board_title"] ?>  </span>
+                <span class="info_span3"><?php echo $result_info["board_write_date"] ?></span>
+            </p>
+        </div>
+        <p class="board_contents"><?php echo $result_info["board_contents"] ?></p>
     </div>
-    <button class="btn btn-outline-dark" type="button" title="수정 페이지로 이동" onclick="location.href='board_update.php?board_no=<?php echo $board_no ?>'">수정</button>
-    <button class="btn btn-outline-dark" type="button" title="삭제하기" onclick="location.href='board_delete.php?board_no=<?php echo $result_info['board_no'] ?>'">삭제</button>
-    <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $list_page ?>'">리스트</button>
+    <div class="btns">
+        <button class="btn btn-outline-dark" type="button" title="수정 페이지로 이동" onclick="location.href='board_update.php?board_no=<?php echo $board_no ?>'">수정</button>
+        <button class="btn btn-outline-dark" type="button" title="삭제하기" onclick="location.href='board_delete.php?board_no=<?php echo $result_info['board_no'] ?>'">삭제</button>
+        <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $list_page ?>'">리스트</button>
+    </div>
 </body>
 </html>

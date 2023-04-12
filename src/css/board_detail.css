@@ -12,3 +12,42 @@
     font-size : 80px;
     text-align: center;
 }
+.info_p {
+    font-family : 'TheJamsil5Bold';
+    font-size : 25px;
+}
+.main_contents {
+    width: 810px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;;
+}
+.info_div {
+    text-align: center;
+    font-family: 'TheJamsil5Bold';
+    background-color: #212529;
+    color: white;
+}
+.btns {
+    width: 810px;
+    margin: 0 auto;
+    position: relative;
+    top : 10px;
+    left : 320px;
+}
+.info_span1 {
+    position: relative;
+    top : -2px;
+    right : 260px;
+    font-size : 15px;
+}
+.info_span3 {
+    position: relative;
+    top : -2px;
+    left : 260px;
+    font-size : 15px;
+}
+.board_contents {
+    font-size: 15px;
+    margin : 10px;
+}
