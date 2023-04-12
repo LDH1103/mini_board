@@ -48,7 +48,8 @@
     <title>게시글 수정</title>
 </head>
 <body>
-    <h1 class="top">게시글 수정</h1>
+    <h1 class="top_main"><a href="board_list.php" style="text-decoration : none; color : black; margin-top : 30px; font-weight : 900; font-family: 'Bebas Neue', cursive; font-size : 80px;">BOARD</a></h1>
+    <h2 class="top">게시글 수정</h2>
     <form class="body_form" method="post" action="board_update.php">
 		<label class="label_title" for="title">제목</label>
 		<input class="input_title" type="text" spellcheck="false" name="board_title" id="title" value="<?php echo $result_info["board_title"] ?>">
@@ -58,7 +59,7 @@
 		<label for="contents"></label>
 		<textarea class="input_contents" spellcheck="false" name="board_contents" id="contents"><?php echo $result_info["board_contents"] ?></textarea>
 		<br>
-		<button class="btn btn-outline-dark" type="submit" title="수정하기" onclick="alert('수정 완료')">수정</button>
+		<button class="btn btn-outline-dark" type="submit" title="수정하기" onclick="alert('수정 완료')">수정 완료</button>
         <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $list_page ?>'">리스트</button>
 
         <!-- onclick="history.back()" -->

@@ -106,12 +106,19 @@ function select_board_info_cnt() {
     return $result;
 }
 
+// ---------------------------------
+// 함수명	: select_board_info_no
+// 기능		: 게시판 특정 게시글 정보 검색
+// 파라미터	: INT		&$param_no
+// 리턴값	: Array		$result
+// ---------------------------------
 function select_board_info_no( &$param_no ) {
     $sql =
         " SELECT "
         ."      board_no "
         ."      ,board_title "
         ."      ,board_contents "
+        ."      ,board_write_date " // 0412 작성일 추가
         ." FROM "
         ."      board_info "
         ." WHERE "
@@ -207,6 +214,10 @@ function update_board_info_no( &$param_arr ) {
 //         ,"board_contents"   => "testtest1"   
 //     );
 // echo update_board_info_no( $arr );
+
+
+// $i = 20;
+// print_r( select_board_info_no($i) );
 
 // TODO : test End
 

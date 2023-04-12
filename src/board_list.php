@@ -65,7 +65,7 @@
                 ?>
                         <tr class="tr_font">
                             <td><?php echo $recode["board_no"] ?></td>
-                            <td class="td_left"><a class="a_none" href="board_update.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
+                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php echo $recode["board_title"] ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>
                 <?php

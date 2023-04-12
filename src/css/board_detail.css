@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+@font-face {
+    font-family: 'TheJamsil5Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/TheJamsil5Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+.top {
+    margin-top : 30px;
+    font-weight : 900;
+    font-family: 'Bebas Neue', cursive;
+    font-size : 80px;
+    text-align: center;
+}
