@@ -24,7 +24,11 @@
         $result_cnt = update_board_info_no( $arr_info );
 
         // select
-        $result_info = select_board_info_no( $arr_post["board_no"] );
+        // $result_info = select_board_info_no( $arr_post["board_no"] ); // 0412 del
+
+        // 수정 후 detail 페이지로 redirect
+        header( "Location: board_detail.php?board_no=".$arr_post["board_no"] );
+        exit(); // 31행에서 redirect 했기 때문에 이후의 소스 코드는 실행할 필요가 없다.
     }
 
     // 내림차순 정렬일때 페이지 구하기
@@ -48,7 +52,7 @@
     <title>게시글 수정</title>
 </head>
 <body>
-    <h1 class="top_main"><a href="board_list.php" style="text-decoration : none; color : black; margin-top : 30px; font-weight : 900; font-family: 'Bebas Neue', cursive; font-size : 80px;">BOARD</a></h1>
+    <h1 class="top_main" style="margin-top : 30px;"><a href="board_list.php" style="text-decoration : none; color : black; margin-top : 30px; font-weight : 900; font-family: 'Bebas Neue', cursive; font-size : 80px;">BOARD</a></h1>
     <h2 class="top">게시글 수정</h2>
     <form class="body_form" method="post" action="board_update.php">
 		<label class="label_title" for="title">제목</label>
