@@ -173,7 +173,48 @@ function update_board_info_no( &$param_arr ) {
     $conn = null;
     try {
         db_conn( $conn ); // PDO object set
-        $conn->beginTransaction(); // Transactio 시작, commit이나 rollback을 만나면 종료됨
+        $conn->beginTransaction(); // Transaction 시작, commit이나 rollback을 만나면 종료됨
+        $stmt = $conn->prepare( $sql ); // statement object 셋팅
+        $stmt->execute( $arr_prepare ); // DB request
+        $result_cnt = $stmt->rowCount(); // query 적용 recode 갯수 (업데이트된 행이 몇갠지)
+        $conn->commit(); // 업데이트 후 커밋
+    } 
+    catch ( Exception $e ) {
+        $conn->rollback();
+        return $e->getMessage();
+    } 
+    finally {
+        $conn = null;
+    }
+
+    return $result_cnt;
+}
+
+// ---------------------------------
+// 함수명	: delete_board_info_no
+// 기능		: 게시판 특정 게시글 정보 삭제 플래그 갱신
+// 파라미터	: INT              &$param_no
+// 리턴값	: INT/STRING		$result_cnt/ERRMSG
+// ---------------------------------
+function delete_board_info_no( &$param_no ) {
+    $sql =
+        " UPDATE "
+        ."      board_info "
+        ." SET "
+        ."      board_del_flg = '1' "
+        ."      ,board_del_date = NOW() "
+        ." WHERE "
+        ."     board_no = :board_no "
+        ;
+    $arr_prepare =
+        array(
+            ":board_no" => $param_no
+        );
+
+    $conn = null;
+    try {
+        db_conn( $conn ); // PDO object set
+        $conn->beginTransaction(); // Transaction 시작, commit이나 rollback을 만나면 종료됨
         $stmt = $conn->prepare( $sql ); // statement object 셋팅
         $stmt->execute( $arr_prepare ); // DB request
         $result_cnt = $stmt->rowCount(); // query 적용 recode 갯수 (업데이트된 행이 몇갠지)

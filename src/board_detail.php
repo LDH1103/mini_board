@@ -34,7 +34,7 @@ ob_start(); include_once('board_update.php'); ob_end_clean();
 
     </div>
     <button class="btn btn-outline-dark" type="button" title="수정 페이지로 이동" onclick="location.href='board_update.php?board_no=<?php echo $board_no ?>'">수정</button>
-    <button class="btn btn-outline-dark" type="button" title="삭제하기" onclick="location.href='board_update.php?board_no=<?php echo $board_no ?>'">삭제</button>
+    <button class="btn btn-outline-dark" type="button" title="삭제하기" onclick="location.href='board_delete.php?board_no=<?php echo $result_info['board_no'] ?>'">삭제</button>
     <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $list_page ?>'">리스트</button>
 </body>
 </html>
