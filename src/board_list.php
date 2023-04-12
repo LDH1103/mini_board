@@ -81,7 +81,7 @@
                 ?>
                         <tr class="tr_font tbl_tr">
                             <td><?php echo $recode["board_no"] ?></td>
-                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php if ( mb_strlen( $recode["board_title"] ) > 10 ) { echo mb_substr( $recode["board_title"], 0, 30).'...'; } else { echo $recode["board_title"]; } ?></a></td>
+                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php if ( mb_strlen( $recode["board_title"] ) > 30 ) { echo mb_substr( $recode["board_title"], 0, 30).'...'; } else { echo $recode["board_title"]; } ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>
                 <?php

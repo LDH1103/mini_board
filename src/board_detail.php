@@ -32,7 +32,7 @@ ob_start(); include_once('board_update.php'); ob_end_clean();
     <div class="main_contents"> 
         <div class=info_div>
             <div class="info_div1"><?php echo $result_info["board_no"] ?></div>
-            <div class="info_div2"><?php if ( mb_strlen( $result_info["board_title"] ) > 10 ) { echo mb_substr( $result_info["board_title"], 0, 35).'...'; } else { echo $result_info["board_title"]; } ?></div>
+            <div class="info_div2"><?php if ( mb_strlen( $result_info["board_title"] ) > 35 ) { echo mb_substr( $result_info["board_title"], 0, 35).'...'; } else { echo $result_info["board_title"]; } ?></div>
             <div class="info_div3"><?php echo $result_info["board_write_date"] ?></div>
         </div>
         <p class="board_contents"><?php echo $result_info["board_contents"] ?></p>
