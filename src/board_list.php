@@ -49,7 +49,7 @@
     <title>게시판</title>
 </head>
 <body>
-    <h1 class="top">BOARD</h1>
+    <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
     <div class="div_table">
         <table class="table table-hover">
             <thead class="table-dark">

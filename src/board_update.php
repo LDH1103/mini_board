@@ -30,6 +30,7 @@
     // 내림차순 정렬일때 페이지 구하기
     ob_start(); include_once('board_list.php'); ob_end_clean(); // 다른 php파일 변수 불러오기 (다른내용은 출력 안함)
     $list_page = ceil(( $result_cnt[0]["cnt"] - $result_info["board_no"] + 1 ) / $limit_num ); 
+    // 올림(( 전체글 갯수 - 현재글 번호 ) / 한페이지에 보여지는 글 수 );
     // +1을 해주는 이유 : 전체글이 10개, 최신글번호가 10번이면 전체글/글번호 하면 0 이나오기때문에
 
     // 오름차순 정렬일때 페이지 구하기
