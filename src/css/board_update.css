@@ -40,6 +40,7 @@ input {
     outline: 1px solid rgba(82, 209, 160, 0.603);
 }
 .label_title {
+    font-size : 20px;
     position: relative;
     left: -8px;
     font-family: 'TheJamsil5Bold';
