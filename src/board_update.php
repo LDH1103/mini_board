@@ -58,7 +58,7 @@
 		<label for="contents"></label>
 		<textarea class="input_contents" spellcheck="false" name="board_contents" id="contents"><?php echo $result_info["board_contents"] ?></textarea>
 		<br>
-		<button class="btn btn-outline-dark" type="submit" title="수정하기">수정</button>
+		<button class="btn btn-outline-dark" type="submit" title="수정하기" onclick="alert('수정 완료')">수정</button>
         <button class="btn btn-outline-dark" type="button" title="리스트로 돌아가기" onclick="location.href='board_list.php?page_num=<?php echo $list_page ?>'">리스트</button>
 
         <!-- onclick="history.back()" -->
