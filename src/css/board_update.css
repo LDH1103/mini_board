@@ -20,13 +20,6 @@ input {
     text-align: center;
     margin: 10px auto;
 }
-.top_main {
-    text-align: center;
-    margin-top : 30px;
-    font-family : 'Bebas Neue', cursive;
-    font-weight : 300;
-    text-align : center;
-}
 .input_contents {
     width: 800px;
     height: 300px;

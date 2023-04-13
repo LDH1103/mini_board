@@ -1,6 +1,7 @@
 <?php
 define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
 define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
+define( "URL_HEADER", "board_header.php" );
 include_once( URL_DB );
 
 // Request Parameter 획득(GET)
@@ -28,7 +29,7 @@ ob_start(); include_once('board_update.php'); ob_end_clean();
     <link rel="stylesheet" href="./css/board_detail.css">
 </head>
 <body>
-    <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
+    <?php include( URL_HEADER ); ?>
     <div class="main_contents"> 
         <div class=info_div>
             <div class="info_div1"><?php echo $result_info["board_no"] ?></div>

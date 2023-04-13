@@ -1,6 +1,7 @@
 <?php
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
+    define( "URL_HEADER", "board_header.php" );
     include_once( URL_DB );
     // include_once( C:\Apache24\htdocs\mini_board\src\common\db_common.php ); 랑 같음
     $http_method = $_SERVER["REQUEST_METHOD"];
@@ -66,7 +67,7 @@
 </head>
 <body>
     <span class="top_title">
-        <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
+        <?php include_once( URL_HEADER ); ?>
         <button type="button" class="btn btn-outline-secondary write-button" onclick="location.href='board_insert.php'">게시글 작성</button>
     </span>
     <div class="div_table">
@@ -94,55 +95,61 @@
         </table>
     </div>
     <div class="page_bar">
-    <?php
-        if ( $page_num > 1 ) {
-    ?>
-            <a class='btn btn-outline-secondary' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
-    <?php
-        } else {
-    ?>
-            <a class='btn btn-outline-secondary hidden' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>◀◀</a>
-    <?php
-        }
-        if ( $page_num > $block_set ) {
-    ?>
-            <a class='btn btn-outline-secondary a_margin_r' title='이전 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - $block_set ?>'>◀</a>
-    <?php
-        } else {
-    ?>
-            <a class='btn btn-outline-secondary a_margin_r hidden' title='이전 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - $block_set ?>'>◀</a>
-    <?php
-        }
-    ?>
-    <?php
-        for ( $i = $block_start; $i <= $block_end; $i++ ) {
-    ?> 
-            <a class="btn btn-outline-secondary abs" title='<?php echo $i ?>페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $i ?>'><?php echo $i; ?></a>
-    <?php
-        }
-    ?>
-    <?php
-        if ( $page_num + $block_set <= $max_page_num ) {
-    ?>
-            <a class='btn btn-outline-secondary a_margin_l ' title='다음 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + $block_set ?>'>▶</a>
-    <?php
-        } else {
-    ?>
-            <a class='btn btn-outline-secondary a_margin_l hidden' title='다음 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + $block_set ?>'>▶</a>
-    <?php
-        }
-    ?>
-    <?php
-        if ($page_num != $max_page_num) {
-    ?>
-            <a class='btn btn-outline-secondary' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>▶▶</a>
-    <?php
-        } else {
-    ?>
-            <a class='btn btn-outline-secondary hidden' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>▶▶</a>
-    <?php
-        }
-    ?>
+        <div class="page_bar_back">
+        <?php
+            if ( $page_num > 1 ) {
+        ?>
+                <a class='btn btn-outline-secondary' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>처음</a>
+        <?php
+            } else {
+        ?>
+                <a class='btn btn-outline-secondary hidden' title='처음 페이지로 이동합니다.' href='board_list.php?page_num=1'>처음</a>
+        <?php
+            }
+            if ( $page_num > $block_set ) {
+        ?>
+                <a class='btn btn-outline-secondary a_margin_r' title='이전 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - $block_set ?>'>이전</a>
+        <?php
+            } else {
+        ?>
+                <a class='btn btn-outline-secondary a_margin_r hidden' title='이전 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num - $block_set ?>'>이전</a>
+        <?php
+            }
+        ?>
+        </div>
+        <div class="page_bar_list">
+        <?php
+            for ( $i = $block_start; $i <= $block_end; $i++ ) {
+        ?> 
+                <a class="btn btn-outline-secondary abs" title='<?php echo $i ?>페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $i ?>'><?php echo $i; ?></a>
+        <?php
+            }
+        ?>
+        </div>
+        <div class="page_bar_pront">
+        <?php
+            if ( $page_num + $block_set <= $max_page_num ) {
+        ?>
+                <a class='btn btn-outline-secondary a_margin_l ' title='다음 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + $block_set ?>'>다음</a>
+        <?php
+            } else {
+        ?>
+                <a class='btn btn-outline-secondary a_margin_l hidden' title='다음 블럭으로 이동합니다.' href='board_list.php?page_num=<?php echo $page_num + $block_set ?>'>다음</a>
+        <?php
+            }
+        ?>
+        <?php
+            if ($page_num != $max_page_num) {
+        ?>
+                <a class='btn btn-outline-secondary' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>마지막</a>
+        <?php
+            } else {
+        ?>
+                <a class='btn btn-outline-secondary hidden' title='마지막 페이지로 이동합니다.' href='board_list.php?page_num=<?php echo $max_page_num ?>'>마지막</a>
+        <?php
+            }
+        ?>
+        </div>
     </div>
 </body>
 </html>

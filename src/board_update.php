@@ -1,6 +1,7 @@
 <?php
     define( "DOC_ROOT", $_SERVER["DOCUMENT_ROOT"]."/" );
     define( "URL_DB", DOC_ROOT."mini_board/src/common/db_common.php" );
+    define( "URL_HEADER", "board_header.php" );
     include_once( URL_DB );
 
     // Request Method를 획득
@@ -60,7 +61,7 @@
     <link rel="stylesheet" href="./css/board_update.css">
 </head>
 <body>
-    <h1 class="top_main" style="margin-top : 30px;"><a href="board_list.php" style="text-decoration : none; color : black; margin-top : 30px; font-weight : 900; font-family: 'Bebas Neue', cursive; font-size : 80px;">BOARD</a></h1>
+    <?php include( URL_HEADER ); ?>
     <h2 class="sub_title">게시글 수정</h2>
     <form class="body_form" method="post" action="board_update.php">
 		<label class="label_title" for="title">제목</label>
