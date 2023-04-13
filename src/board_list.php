@@ -13,7 +13,7 @@
         $page_num = 1;
     }
 
-    $limit_num = 5;
+    $limit_num = 10;
 
     // 게시판 정보 테이블 전체 카운트 획득
     $result_cnt = select_board_info_cnt();
@@ -44,7 +44,7 @@
 
     // 제목 몇글자만 출력
     // if ( mb_strlen( $recode["board_title"] ) > 10 ) {
-    //     echo mb_substr( $recode["board_title"], 0, 10)."...";
+    //     echo mb_substr( $recode["board_title"], 0, 10)." ...";
     // } else {
     //     echo $recode["board_title"];
     // }
@@ -74,7 +74,7 @@
         <table class="tbl">
             <thead class="tbl_th">
                 <tr class="tbl_tr tbl_tr_color">
-                    <th>게시글 번호</th>
+                    <th>글 번호</th>
                     <th>게시글 제목</th>
                     <th>작성일자</th>
                 </tr>
@@ -85,7 +85,7 @@
                 ?>
                         <tr class="tr_font tbl_tr">
                             <td><?php echo $recode["board_no"] ?></td>
-                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php if ( mb_strlen( $recode["board_title"] ) > 30 ) { echo mb_substr( $recode["board_title"], 0, 30).'...'; } else { echo $recode["board_title"]; } ?></a></td>
+                            <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php if ( mb_strlen( $recode["board_title"] ) > 30 ) { echo mb_substr( $recode["board_title"], 0, 30).' ...'; } else { echo $recode["board_title"]; } ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>
                 <?php

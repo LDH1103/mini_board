@@ -34,7 +34,7 @@
 		<input class="input_title" type="text" maxlength="100" spellcheck="false" name="board_title" id="title" placeholder="제목을 입력하세요." required>
         <br>
 		<label for="contents"></label>
-		<textarea class="input_contents" spellcheck="false" name="board_contents" id="contents" placeholder="내용을 입력하세요."></textarea>
+		<textarea class="input_contents" maxlength="1000" spellcheck="false" name="board_contents" id="contents" placeholder="내용을 입력하세요."></textarea>
 		<br>
 		<button class="btn btn-outline-dark" type="submit" title="게시글 작성">작성</button>
 		<button class="btn btn-outline-dark" type="button" title="취소하기" onclick="location.href='board_list.php'">취소</button>

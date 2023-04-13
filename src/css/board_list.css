@@ -10,17 +10,11 @@
     margin : 15px auto;
     width : 900px;
 }
-.a_margin_r {
-    margin-right : 15px;
-}
-.a_margin_l {
-    margin-left : 15px;
-}
 .page_bar {
     width : 800px;
     margin : 0 auto;
     display: grid;
-    grid-template-columns: 200px 1fr 200px;
+    grid-template-columns: 230px 1fr 230px;
     position: relative;
 }
 .abs {
@@ -80,8 +74,10 @@
 .page_bar_back {
     display: inline-block;
     margin-top: 20px;
+    text-align: end;
 }
 .page_bar_pront {
     display: inline-block;
     margin-top: 20px;
+    text-align: start;
 }
