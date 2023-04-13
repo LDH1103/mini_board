@@ -65,7 +65,10 @@
     <title>게시판</title>
 </head>
 <body>
-    <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
+    <span class="top_title">
+        <h1 class="top"><a href="board_list.php" style="text-decoration : none; color : black;">BOARD</a></h1>
+        <button type="button" class="btn btn-outline-secondary write-button" onclick="location.href='board_insert.php'">게시글 작성</button>
+    </span>
     <div class="div_table">
         <table class="tbl">
             <thead class="tbl_th">

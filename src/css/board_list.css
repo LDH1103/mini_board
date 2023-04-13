@@ -64,3 +64,13 @@
     font-family: 'TheJamsil5Bold';
     font-size : 20px;
 }
+.write-button {
+    position :absolute;
+    bottom : 0;
+    right: 30px;
+}
+.top_title {
+    width: 900px;
+    position: relative;
+    display: inline-block;
+}
