@@ -64,7 +64,7 @@
     <h2 class="sub_title">게시글 수정</h2>
     <form class="body_form" method="post" action="board_update.php">
 		<label class="label_title" for="title">제목</label>
-		<input class="input_title" type="text" spellcheck="false" name="board_title" id="title" value="<?php echo $result_info["board_title"] ?>">
+		<input class="input_title" type="text" maxlength="33" spellcheck="false" name="board_title" id="title" value="<?php echo $result_info["board_title"] ?>">
         <label class="label_no" for="bno">글 번호 : </label>
 		<input class="input_no" type="text" name="board_no" id="bno" value="<?php echo $result_info["board_no"] ?>" readonly>
         <br>

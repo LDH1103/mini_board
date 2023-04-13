@@ -8,7 +8,7 @@
 function db_conn( &$param_conn ) {
     $host = "localhost";
     $user = "root";
-    $pass = "shlove1103**";
+    $pass = "root506";
     $charset = "utf8mb4";
     $db_name = "board";
     $dns = "mysql:host=".$host.";dbname=".$db_name.";charset=".$charset;
