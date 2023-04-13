@@ -43,9 +43,6 @@
     text-decoration : none;
     color : black;
 }
-.tr_font {
-    font-family: 'TheJamsil5Bold';
-}
 .tbl_tr {
     width: 900px;
     display: grid;
@@ -55,10 +52,11 @@
     background-color: rgba(204, 204, 204, 0.253);
 }
 .tr_font {
-    margin: 5px;
+    height: 35px;
     margin-left: 0;
-    padding-bottom: 3px;
+    padding-top: 5px;
     border-bottom: 1px solid rgba(148, 148, 148, 0.308);
+    font-family: 'TheJamsil5Bold';
 }
 .tbl_tr_color {
     background-color: #212529;

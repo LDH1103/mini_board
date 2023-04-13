@@ -39,7 +39,7 @@
     if( $block_end > $max_page_num ) {
         $block_end = $max_page_num; // 현재 블럭의 끝 페이지 번호가 전체 페이지 수보다 크다면, 다음 블럭이 존재하지 않으므로 현재 블럭의 끝 페이지 번호를 전체 페이지 수로 지정
     }
-    $total_block = ceil( $max_page_num / $block_set ); // 총 블럭 갯수
+    $total_block = ceil( $max_page_num / $block_set ); // 총 블럭 수
 
     // 제목 몇글자만 출력
     // if ( mb_strlen( $recode["board_title"] ) > 10 ) {
