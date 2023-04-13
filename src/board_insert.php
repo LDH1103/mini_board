@@ -30,10 +30,10 @@
     <h2 class="sub_title">게시글 작성</h2>
     <form class="body_form" method="post" action="board_insert.php">
 		<label class="label_title" for="title">제목</label>
-		<input class="input_title" type="text" maxlength="100" spellcheck="false" name="board_title" id="title">
+		<input class="input_title" type="text" maxlength="100" spellcheck="false" name="board_title" id="title" placeholder="제목을 입력하세요." required>
         <br>
 		<label for="contents"></label>
-		<textarea class="input_contents" spellcheck="false" name="board_contents" id="contents"></textarea>
+		<textarea class="input_contents" spellcheck="false" name="board_contents" id="contents" placeholder="내용을 입력하세요."></textarea>
 		<br>
 		<button class="btn btn-outline-dark" type="submit" title="게시글 작성">작성</button>
 		<button class="btn btn-outline-dark" type="button" title="취소하기" onclick="location.href='board_list.php'">취소</button>
