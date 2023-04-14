@@ -11,6 +11,7 @@ $arr_get = $_GET;
 $result_info = select_board_info_no( $arr_get["board_no"] );
 
 ob_start(); include_once('board_update.php'); ob_end_clean();
+
 board_info_views( $arr_get["board_no"] ); // 0414 조회수 add
 
 ?>
