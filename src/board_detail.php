@@ -11,6 +11,7 @@ $arr_get = $_GET;
 $result_info = select_board_info_no( $arr_get["board_no"] );
 
 ob_start(); include_once('board_update.php'); ob_end_clean();
+board_info_views( $arr_get["board_no"] ); // 0414 조회수 add
 
 ?>
 
@@ -32,7 +33,7 @@ ob_start(); include_once('board_update.php'); ob_end_clean();
     <?php include( URL_HEADER ); ?>
     <div class="main_contents"> 
         <div class=info_div>
-            <div class="info_div1"><?php echo $result_info["board_no"] ?></div>
+            <div class="info_div1"><?php echo $result_info["board_no"] ?> / <?php echo $result_info["views"] + 1 ?></div>
             <div class="info_div2"><?php if ( mb_strlen( $result_info["board_title"] ) > 35 ) { echo mb_substr( $result_info["board_title"], 0, 35).' ...'; } else { echo $result_info["board_title"]; } ?></div>
             <div class="info_div3"><?php echo $result_info["board_write_date"] ?></div>
         </div>

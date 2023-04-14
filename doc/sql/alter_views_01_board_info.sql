@@ -1,0 +1,6 @@
+ALTER TABLE board_info
+ADD views INT NOT NULL DEFAULT 0;
+
+SELECT * FROM board_info;
+
+COMMIT;

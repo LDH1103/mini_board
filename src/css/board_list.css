@@ -43,7 +43,7 @@
 .tbl_tr {
     width: 900px;
     display: grid;
-    grid-template-columns: 130px 1fr 250px;
+    grid-template-columns: 170px 1fr 250px;
 }
 .tr_font:hover {
     background-color: rgba(204, 204, 204, 0.253);
@@ -80,4 +80,7 @@
     display: inline-block;
     margin-top: 20px;
     text-align: start;
+}
+.nums {
+    width : 150px;
 }

@@ -41,6 +41,7 @@ function select_board_info_paging( &$param_arr ) {
         ."      board_no "
         ."      ,board_title "
         ."      ,board_write_date "
+        ."      ,views  " // 0414 추가
         ." FROM "
         ."      board_info "
         ." WHERE "
@@ -119,6 +120,7 @@ function select_board_info_no( &$param_no ) {
         ."      ,board_title "
         ."      ,board_contents "
         ."      ,board_write_date " // 0412 작성일 추가
+        ."      ,views " // 0414 조회수 add
         ." FROM "
         ."      board_info "
         ." WHERE "
@@ -277,6 +279,46 @@ function insert_board_info( &$arr_param ) {
     return $result_cnt;
 }
 
+// ---------------------------------
+// 함수명	: board_info_views
+// 기능		: 조회수 올리기
+// 파라미터	: Int           $param_board_no
+// 리턴값	: Int/String    $result_cnt/ErrMSG
+// ---------------------------------
+function board_info_views( &$param_board_no ) {
+    $sql =
+        " UPDATE "
+        ."      board_info "
+        ." SET "
+        ."      views = views + 1 "
+        ." WHERE "
+        ."      board_no = :board_no "
+        ;
+    $arr_prepare =
+        array(
+            ":board_no" => $param_board_no
+        );
+
+    $conn = null;
+    try {
+        db_conn( $conn );
+        $conn->beginTransaction();
+        $stmt = $conn->prepare( $sql );
+        $stmt->execute( $arr_prepare );
+        $result_cnt = $stmt->rowCount();
+        $conn->commit();
+    } 
+    catch ( Exception $e ) {
+        $conn->rollback();
+        return $e->getMessage();
+    } 
+    finally {
+        $conn = null;
+    }
+
+    return $result_cnt;
+}
+
 // TODO : test Start
 
 // $arr = 
@@ -307,6 +349,9 @@ function insert_board_info( &$arr_param ) {
 
 // $arr = array( "board_title" => "제목제목", "board_contents" => "내용내용" );
 // echo insert_board_info( $arr );
+
+// $a = 253;
+// var_dump(board_info_views( $a ));
 
 // TODO : test End
 

@@ -72,9 +72,9 @@
     </span>
     <div class="div_table">
         <table class="tbl">
-            <thead class="tbl_th">
+            <thead>
                 <tr class="tbl_tr tbl_tr_color">
-                    <th>글 번호</th>
+                    <th class="nums">글 번호 / 조회수</th>
                     <th>게시글 제목</th>
                     <th>작성일자</th>
                 </tr>
@@ -84,7 +84,7 @@
                     foreach( $result_paging as $recode ) {
                 ?>
                         <tr class="tr_font tbl_tr">
-                            <td><?php echo $recode["board_no"] ?></td>
+                            <td><?php echo $recode["board_no"] ?> / <?php echo $recode['views']; ?></td> <!-- 0414 조회수 추가 -->
                             <td class="td_left"><a class="a_none" href="board_detail.php?board_no=<?php echo $recode["board_no"] ?>"><?php if ( mb_strlen( $recode["board_title"] ) > 30 ) { echo mb_substr( $recode["board_title"], 0, 30).' ...'; } else { echo $recode["board_title"]; } ?></a></td>
                             <td><?php echo $recode["board_write_date"] ?></td>
                         </tr>

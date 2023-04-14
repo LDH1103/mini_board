@@ -1,5 +1,5 @@
 <?php
-define( "FOLDER_ROOT", "D:/student/mini_board_tng"."/" );
+define( "FOLDER_ROOT", "C:/Apache24/htdocs/mini_board_tng"."/" );
 define( "DOC_ROOT", FOLDER_ROOT."tng_common.php" );
 include_once( DOC_ROOT );
 
@@ -22,17 +22,16 @@ $result = fnc_db_select();
             <th>작성일</th>
         </thead>
         <tbody>
-            
             <?php
-            foreach ($result as $recode) {
+                foreach ($result as $recode) {
             ?>
-            <tr>
-                <td><?php echo $recode['board_no']; ?></td>
-                <td><?php echo $recode['board_title']; ?></td>
-                <td><?php echo $recode['board_write_date']; ?></td>
+                <tr>
+                    <td><?php echo $recode['board_no']; ?></td>
+                    <td><?php echo $recode['board_title']; ?></td>
+                    <td><?php echo $recode['board_write_date']; ?></td>
                 </tr>
             <?php
-            }
+                }
             ?>
         </tbody>
     </table>
