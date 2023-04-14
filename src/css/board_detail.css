@@ -8,16 +8,17 @@
 .top {
     margin-top : 30px;
     font-weight : 900;
-    font-family: 'Bebas Neue', cursive;
+    font-family : 'Bebas Neue', cursive;
     font-size : 80px;
     text-align: center;
 }
 .main_contents {
-    width: 811px;
-    margin: 0 auto;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    word-break:break-all;
+    width : 811px;
+    height : 600px;
+    margin : 0 auto;
+    border : 1px solid #ccc;
+    border-radius : 10px;
+    word-break :break-all;
 }
 .info_div {
     width: 810px;
@@ -26,7 +27,7 @@
     background-color: #212529;
     color: white;
     display: grid;
-    grid-template-columns: 120px 1fr 250px;
+    grid-template-columns: 170px 1fr 250px;
     font-size : 20px;
 }
 .info_div2 {
