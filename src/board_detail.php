@@ -35,7 +35,7 @@ board_info_views( $arr_get["board_no"] ); // 0414 조회수 add
     <div class="main_contents"> 
         <div class=info_div>
             <div class="info_div1"><?php echo $result_info["board_no"] ?> / <?php echo $result_info["views"] + 1 ?></div>
-            <div class="info_div2"><?php if ( mb_strlen( $result_info["board_title"] ) > 35 ) { echo mb_substr( $result_info["board_title"], 0, 35).' ...'; } else { echo $result_info["board_title"]; } ?></div>
+            <div class="info_div2"><?php if ( mb_strlen( $result_info["board_title"] ) > 30 ) { echo mb_substr( $result_info["board_title"], 0, 30).' ...'; } else { echo $result_info["board_title"]; } ?></div>
             <div class="info_div3"><?php echo $result_info["board_write_date"] ?></div>
         </div>
         <p class="board_contents"><?php echo $result_info["board_contents"] ?></p>
