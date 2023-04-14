@@ -18,7 +18,7 @@
     margin : 0 auto;
     border : 1px solid #ccc;
     border-radius : 10px;
-    word-break :break-all;
+    word-break : normal;
 }
 .info_div {
     width: 810px;
